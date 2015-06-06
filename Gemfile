@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "Geocoder-US", :git => 'https://github.com/korczis/geocoder.git'
 gem "net-geoip"
 gem "sinatra"
 gem "choice"
