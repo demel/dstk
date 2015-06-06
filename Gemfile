@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "net-geoip"
 gem "sinatra"
 gem "choice"
 gem "json"
