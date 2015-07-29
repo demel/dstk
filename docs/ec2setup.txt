@@ -168,7 +168,7 @@ sudo make install
 cd ..
 svn checkout svn://rubyforge.org/var/svn/net-geoip/trunk net-geoip
 cd net-geoip/
-ruby ext/extconf.rb 
+ruby ext/extconf.rb
 make
 sudo make install
 
@@ -222,7 +222,7 @@ sudo make install
 cd /mnt/data
 mkdir tigerdata
 cd tigerdata
-lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
+lftp ftp2.census.gov:/geo/tiger/TIGER2014/EDGES
 mirror --parallel=5 .
 cd ../FEATNAMES
 mirror --parallel=5 .
@@ -231,7 +231,7 @@ mirror --parallel=5 .
 exit
 cd ~/sources/geocoder/build/
 mkdir ../../geocoderdata/
-./tiger_import ../../geocoderdata/geocoder2012.db /mnt/data/tigerdata/
+./tiger_import ../../geocoderdata/geocoder2014.db /mnt/data/tigerdata/
 
 cd ~/sources
 git clone git://github.com/luislavena/sqlite3-ruby.git
@@ -241,9 +241,9 @@ ruby setup.rb setup
 sudo ruby setup.rb install
 
 cd ~/sources/geocoder
-bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
-chmod +x build/build_indexes 
-build/build_indexes ../geocoderdata/geocoder2012.db
+bin/rebuild_metaphones ../geocoderdata/geocoder2014.db
+chmod +x build/build_indexes
+build/build_indexes ../geocoderdata/geocoder2014.db
 rm -rf /mnt/data/tigerdata
 
 createdb -U postgres names
@@ -253,7 +253,7 @@ dos2unix yob*.txt
 ~/sources/dstk/dataconversion/analyzebabynames.rb . > babynames.csv
 psql -U postgres -d names -f ~/sources/dstk/sql/loadnames.sql
 
-# Fix for postgres crashes, 
+# Fix for postgres crashes,
 sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
 sudo sysctl -w kernel.shmmax=576798720
 sudo bash -c 'echo "kernel.shmmax=576798720" >> /etc/sysctl.conf'
@@ -302,7 +302,7 @@ sudo bash -c 'echo "
       RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
       # We have an internal TwoFishes server running on port 8081, so redirect
       # requests that look like they belong to its API
-      ProxyPass /twofishes http://localhost:8081        
+      ProxyPass /twofishes http://localhost:8081
       <Directory /home/ubuntu/sources/dstk/public>
          AllowOverride all
          Options -MultiViews

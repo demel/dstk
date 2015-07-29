@@ -187,7 +187,7 @@ cd ..
 sudo aptitude install subversion -y
 svn checkout http://net-geoip.rubyforge.org/svn/trunk/ net-geoip
 cd net-geoip/
-ruby ext/extconf.rb 
+ruby ext/extconf.rb
 make
 sudo make install
 
@@ -248,7 +248,7 @@ sudo make install
 cd ~/sources
 mkdir tigerdata
 cd ~/sources/tigerdata
-lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
+lftp ftp2.census.gov:/geo/tiger/TIGER2014/EDGES
 mirror --parallel=5 .
 cd ../FEATNAMES
 mirror --parallel=5 .
@@ -258,7 +258,7 @@ exit
 cd ..
 cd geocoder/build
 mkdir ../../geocoderdata/
-./tiger_import ../../geocoderdata/geocoder2012.db ../../tigerdata/
+./tiger_import ../../geocoderdata/geocoder2014.db ../../tigerdata/
 
 cd ~/sources
 git clone git://github.com/luislavena/sqlite3-ruby.git
@@ -268,9 +268,9 @@ ruby setup.rb setup
 sudo ruby setup.rb install
 
 cd ~/sources/geocoder
-bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
-chmod +x build/build_indexes 
-build/build_indexes ../geocoderdata/geocoder2012.db
+bin/rebuild_metaphones ../geocoderdata/geocoder2014.db
+chmod +x build/build_indexes
+build/build_indexes ../geocoderdata/geocoder2014.db
 rm -rf ../tigerdata
 
 # Fix for postgres crashes,
@@ -323,7 +323,7 @@ sudo bash -c 'echo "
       RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
       # We have an internal TwoFishes server running on port 8081, so redirect
       # requests that look like they belong to its API
-      ProxyPass /twofishes http://localhost:8081        
+      ProxyPass /twofishes http://localhost:8081
       <Directory /home/ubuntu/sources/dstk/public>
          AllowOverride all
          Options -MultiViews

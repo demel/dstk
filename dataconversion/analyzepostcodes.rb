@@ -39,7 +39,7 @@ def output_row(country_code, postal_code, place_name, admin_name1, points)
     lon,
     accuracy,
   ].join("\t")
-  
+
 end
 
 previous_country_code = nil

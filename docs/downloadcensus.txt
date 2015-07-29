@@ -7,12 +7,12 @@ sudo chown ubuntu /mnt/tiger
 
 sudo aptitude install ncftp
 ncftp
-open ftp.census.gov 
-cd geo/tiger/TIGER2009
+open ftp.census.gov
+cd geo/tiger/TIGER2014
 lcd /mnt/tiger
-get -R * 
+get -R *
 
-<Attach Tiger/Line 2009 EBS volume to /dev/sdg>
+<Attach Tiger/Line 2014 EBS volume to /dev/sdg>
 sudo mkdir /mnt/tiger
 sudo mount /dev/sdg /mnt/tiger
 sudo chown ubuntu /mnt/tiger

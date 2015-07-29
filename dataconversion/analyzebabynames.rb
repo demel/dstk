@@ -147,4 +147,3 @@ name_rows.each do |name, rows|
 
   output_row(name, male_count, female_count, year_counts, year_percentages)
 end
-
